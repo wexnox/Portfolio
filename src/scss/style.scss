@@ -1,0 +1,72 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  margin: 0;
+}
+a,
+a:hover,
+a:visited,
+a:active {
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  font-size: 0.85rem;
+}
+body {
+  height: 100vh;
+  // margin: 0;
+  // padding: 0;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  background-color: #202020;
+  background-image: url("/img/fog-wallpaper-3840x2160-landscape-4k-18339.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 30% center;
+}
+h1,
+h2,
+h3 {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  line-height: 1.1;
+}
+h1 {
+  font-size: calc(2rem + 2vw);
+  display: flex;
+  align-self: center;
+  color: hsla(180, 3%, 7%, 0.788);
+  padding: 4rem;
+  margin-top: 6.25rem;
+}
+h2 {
+  font-size: 1.575rem;
+}
+h3 {
+  font-size: 1.125rem;
+}
+p {
+  font-size: 1rem;
+}
+
+.box {
+  display: flex;
+  flex-direction: row;
+  background-color: hsla(50, 46%, 18%, 0.336);
+  color: hsl(204, 8%, 88%);
+  width: 90vw;
+  max-width: 700px;
+  padding: 2rem;
+  border-radius: 12px;
+  line-height: 1.5;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.content {
+  display: flex;
+  flex-direction: row;
+  max-width: 80vw;
+}
