@@ -7,7 +7,7 @@ const browsersync = require("browser-sync").create();
 
 const paths = {
   html: {
-    src: ["./src/**/*.html"],
+    src: ["./src/*.html"],
     dest: "./dist/",
   },
   styles: {
@@ -58,7 +58,7 @@ function browsersyncReload(cb) {
 }
 
 function copyHtml() {
-  return src(paths.html.src).pipe(dest(paths.html.dest));
+  return src(paths.html.src).pipe(dest(paths.html.dest, { overwrite: true }));
 }
 
 // Watch Task
@@ -72,11 +72,11 @@ function watchTask() {
 
 // Default Gulp task
 exports.default = series(
+  copyHtml,
   scssTask,
   jsTask,
   browsersyncServe,
-  watchTask,
-  copyHtml
+  watchTask
 );
 
 exports.copyHtml = copyHtml;
