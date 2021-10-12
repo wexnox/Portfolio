@@ -18,6 +18,7 @@
    _Js min_
 
    `npm install --save-dev gulp-terser`
+
    _image min and webp_
 
    `npm install --save-dev gulp-imagemin gulp-webp`
@@ -25,3 +26,7 @@
 4. Add gulpfile.
 5. Create functions, watchtask and default gulp.
 6. Run gulp.
+
+#TODO:
+
+* Update documentation Portofolio
