@@ -14,6 +14,7 @@
    _scss convert, min, and autoprefix_
 
    `npm install --save-dev gulp-sass gulp-autoprefixer gulp-clean-css gulp-rename postcss cssnano browser-sync`
+
    _Js min_
 
    `npm install --save-dev gulp-terser`
