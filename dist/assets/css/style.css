@@ -15,19 +15,13 @@ a:active {
 }
 
 body {
-  height: 100vh;
   font-family: Georgia, "Times New Roman", Times, serif;
-  background-color: #202020;
-  background-image: url("/images/fog-wallpaper-3840x2160-landscape-4k-18339.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: 30% center;
+  background-color: #6e99c9;
 }
 
 h1,
 h2,
 h3 {
-  font-family: Georgia, "Times New Roman", Times, serif;
   line-height: 1.1;
 }
 
@@ -37,49 +31,46 @@ h1 {
   align-self: center;
   color: rgba(17, 18, 18, 0.788);
   padding: 4rem;
-  margin-top: 6.25rem;
 }
 
-h2 {
-  font-size: 1.575rem;
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-h3 {
-  font-size: 1.125rem;
-}
-
-p {
-  font-size: 1rem;
+.content {
+  display: flex;
+  flex-direction: column;
+  max-width: 80vw;
 }
 
 .box {
   display: flex;
-  flex-direction: row;
-  background-color: rgba(67, 60, 25, 0.336);
+  flex-direction: column;
+  background-color: rgba(67, 60, 25, 0.623);
   color: #dee1e3;
-  width: 90vw;
-  max-width: 700px;
   padding: 2rem;
   border-radius: 12px;
   line-height: 1.5;
 }
 
-.container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-}
+@media screen and (min-width: 1024px) {
+  .content {
+    flex-direction: row;
+  }
 
-.content {
-  display: flex;
-  flex-direction: row;
-  max-width: 80vw;
-}
+  body {
+    min-height: 100vh;
+    font-family: Georgia, "Times New Roman", Times, serif;
+    background-color: #202020;
+    background-image: url("/images/fog-wallpaper-3840x2160-landscape-4k-18339.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 30% center;
+  }
 
-.example {
-  display: grid;
-  transition: all 0.5s;
-  user-select: none;
-  background: linear-gradient(to bottom, white, black);
+  h1 {
+    margin-top: 6.25rem;
+  }
 }
