@@ -1,0 +1,69 @@
+.cards {
+  @include flex-column;
+  list-style: none;
+
+  @include mediaq(desktop) {
+    padding-top: 2em;
+  }
+}
+
+.cards_item {
+  display: block;
+
+
+  @include mediaq(desktop) {
+    padding: 1rem;
+  }
+}
+
+.card {
+  @include flex-column;
+  box-shadow: $box-shadow-card;
+  overflow: hidden;
+
+  background-color: hsla(50, 46%, 18%, 0.623); // Change to variable
+  color: hsl(60, 8%, 88%); // Change to variable
+  padding: 1rem;
+  margin: 1rem;
+  border-radius: 12px;
+  line-height: 1.5;
+
+  @include mediaq(desktop) {
+    justify-content: flex-end;
+    padding: 2rem;
+    margin: 2rem;
+  }
+
+}
+
+.card_image {
+  height: auto;
+  max-width: 100%;
+  vertical-align: middle;
+
+  & img {
+    @include mediaq(desktop) {
+      //width: 200px;
+
+    }
+  }
+
+  .card_title {
+    letter-spacing: 1px;
+    text-transform: capitalize;
+    margin: 2rem;
+
+
+  }
+
+  .card_content {
+    //padding: 1rem
+
+  }
+
+  .card_text {
+    //margin-bottom: 1.25rem;
+
+  }
+
+}

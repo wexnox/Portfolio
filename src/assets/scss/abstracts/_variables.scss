@@ -1,0 +1,90 @@
+//TODO: Sample correct colors from wow
+//$color-primary: rgba(237, 239, 239, 0.37);
+$color-primary: rgba(33, 33, 33, 0.68);
+
+$color-primary-light: #0097fe;
+$color-primary-dark: #212121;;
+
+$color-secondary: #513535;
+$color-secondary-light: #513535;
+$color-secondary-dark: #513535;
+
+$color-tertiary: #bc7725;
+$color-tertiary-light: #b5a188;
+$color-tertiary-dark: #56390a;
+
+$color-castleton: #00563B;
+//$color-background: #a29a9a;
+$color-background: #212121;
+//$color-background: rgba(33, 33, 33, 0.68);
+
+$color-white: #FFFFFF;
+$color-black: #000000;
+$color-grey: #9794944C;
+
+$color-success: rgb(92, 219, 92, 90%);
+$color-warning: #D38209FF;
+$color-error: #ec0000;
+
+$btn-primary: $color-primary;
+$btn-secondary: $color-secondary;
+$btn-tertiary: $color-tertiary;
+
+//TODO: check color
+//#SoMe
+$color-facebook: #4267B2;
+$color-github: #6e5494;
+$color-linked: #0e76a8;
+
+// Box Shadow
+$box-shadow-default: 0 0.5rem 1.5rem rgba(#000, 0.15);
+$box-shadow-hover: 0 0.5rem 3rem rgba(#000, 0.2);
+$box-shadow-cta: 0 0rem 10rem rgba(#fff, 0.8);
+$box-shadow-front: 0.3125rem 0.3125rem 0.625rem 0.3125rem rgba(204, 201, 201, 0.75);
+$box-shadow-card: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
+
+// Font Sizes
+// TODO: change to use clamp on size
+//$font-size-default: 1.2rem;
+$font-size-default: clamp(1.125rem, 1.1vw, 1.8rem);
+$font-size-heading: clamp(1.2rem, 2vw, 3rem);
+$font-size-small: clamp(0.875rem, 0.99vw, 1.2rem);
+$font-size-button: clamp(1.1rem, 1.8vw, 2rem );
+
+//Font height
+$font-line-height-default: 1.4;
+$font-line-height-heading: 1.6;
+$font-line-height-button: 1.6;
+
+// Fonts
+
+$font-chat: Arial Narrow, sans-serif;
+$font-body: Georgia, "Times New Roman", Times, serif;
+
+$font-heading: Morpheus, sans-serif;
+
+
+$font-weights: (
+        "light": 300,
+        "regular": 400,
+        "medium": 500,
+        "semi-bold": 600,
+        "bold": 700,
+        "extra-bold": 800,
+        "black": 900,
+);
+// divide by font-size, convert to em
+//TODO: research size of px to em
+
+$breakpoint-tablet-portrait: 768px;
+$breakpoint-tablet-landscape: 900px;
+$breakpoint-laptop: 1300px;
+
+$breakpoint-desktop: 1024px;
+$breakpoint-widescreen: 3200px;
+
+//https://blog.logrocket.com/five-cool-css-header-styles-with-cross-browser-compatibility/
+$gradientA: $color-tertiary;
+$gradientB: $color-primary-light;
+
+$gradient-linear: linear-gradient(to right, $gradientA, $gradientB);

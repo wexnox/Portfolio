@@ -1,0 +1,60 @@
+//TODO: import font
+// TODO: clamp to size
+body {
+  font-family: $font-body;
+  font-size: $font-size-default;
+  line-height: $font-line-height-default;
+  font-weight: map-get($font-weights, medium);
+  color: $color-white;
+
+}
+
+h1, h2, h3 {
+  font-family: $font-heading;
+  line-height: $font-line-height-heading;
+  font-size: $font-size-heading;
+  font-weight: map-get($font-weights, bold);
+  //background-image: $gradient-linear;
+  //color: transparent;
+  //background-clip: text;
+  //-webkit-background-clip: text;
+
+}
+
+
+p {
+  font-family: $font-body;
+  font-size: $font-size-default;
+  font-weight: map-get($font-weights, regular);
+  line-height: $font-line-height-default;
+  color: $color-white;
+}
+
+footer {
+  font-size: $font-size-small;
+  font-weight: map-get($font-weights, light);
+
+  @include mediaq(desktop) {
+    font-size: $font-size-default;
+  }
+}
+
+.close {
+  font-size: $font-size-default;
+  font-weight: map-get($font-weights, bold);
+  text-transform: uppercase;
+}
+
+.paragraph {
+  font-size: $font-size-small;
+}
+
+.title {
+  background-image: $gradient-linear;
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  @include mediaq(desktop) {
+    margin: 4rem;
+  }
+}
