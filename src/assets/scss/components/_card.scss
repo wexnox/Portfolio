@@ -22,11 +22,13 @@
   overflow: hidden;
 
   background-color: hsla(50, 46%, 18%, 0.623); // Change to variable
+  //background-color: hsla(50, 46%, 18%, 0.623); // Change to variable
   color: hsl(60, 8%, 88%); // Change to variable
   padding: 1rem;
   margin: 1rem;
   border-radius: 12px;
   line-height: 1.5;
+
 
   @include mediaq(desktop) {
     justify-content: flex-end;
