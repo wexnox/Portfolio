@@ -46,10 +46,12 @@ a:active {
     font-weight: bold;
     text-decoration: none;
     letter-spacing: 5px;
+    color: darken($color-primary-light, 10%);
 
     &:hover {
-      color: $color-white
+      color: $color-primary-dark
     }
+
     &:after {
       background-color: $color-white;
       content: "";
@@ -61,6 +63,7 @@ a:active {
       transition: 0.3s;
       flex: -1;
     }
+
     &:hover:after {
       width: 100%;
     }

@@ -42,6 +42,7 @@
   vertical-align: middle;
 
   & img {
+    max-width: 80vw;
     @include mediaq(desktop) {
       //width: 200px;
 
