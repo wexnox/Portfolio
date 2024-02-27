@@ -1,6 +1,0 @@
-//https://sass-lang.com/documentation/values/functions
-
-// should be used to compute value and return values
-@function weight($weight-name) {
-  @return map-get($font-weights, $weight-name);
-}
