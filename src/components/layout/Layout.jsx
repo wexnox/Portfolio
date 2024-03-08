@@ -4,7 +4,7 @@ import Footer from './Footer.jsx';
 import { Outlet } from 'react-router-dom';
 import fog from '../../assets/images/fog.jpg'
 const bgImage = {
-    backgroundImage: fog,
+    backgroundImage: `url(${fog})`,
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'cover',
     backgroundAttachment: 'fixed',
