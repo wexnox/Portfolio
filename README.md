@@ -4,6 +4,8 @@
 
 A simple overview of the use/purpose of the project.
 
+[![Laravel Forge Site Deployment Status](https://img.shields.io/endpoint?url=https%3A%2F%2Fforge.laravel.com%2Fsite-badges%2F20d4bcf0-4f7e-4a55-b974-691ecf90ed4f&style=plastic)](https://forge.laravel.com/servers/513382/sites/1499168)
+
 ## Description
 
 Add a more detailed description of what your project entails and set out to do.
