@@ -5,7 +5,10 @@ import tailwindcss from 'tailwindcss';
 
 export default defineConfig({
 
-    build: {},
+    build: {
+        minify: true,
+        emptyOutDir: false,
+    },
     css: {
         postcss: {
             plugins: [

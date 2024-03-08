@@ -2,9 +2,9 @@ import React from 'react';
 import Header from './Header.jsx';
 import Footer from './Footer.jsx';
 import { Outlet } from 'react-router-dom';
-
+import fog from '../../assets/images/fog.jpg'
 const bgImage = {
-    backgroundImage: `url('/src/assets/images/fog-wallpaper-3840x2160-landscape-4k-18339.jpg')`,
+    backgroundImage: fog,
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'cover',
     backgroundAttachment: 'fixed',
