@@ -1,6 +1,8 @@
 import Card from '../components/Card.jsx';
 import React from 'react';
-
+import WowBlog from '../assets/images/WoWBlog.png'
+import Rainydays from '../assets/images/Rainydays.png'
+import AdventureTrailHikes from '../assets/images/AdventureTrailHikes.png'
 function Projects() {
     const projects = [
         {
@@ -33,7 +35,7 @@ function Projects() {
             features: ['Website built with HTML, JavaScript and CSS with Sass', 'API: Content stored on a WordPress installation as a Headless CMS'],
             repoUrl: 'https://github.com/wexnox/project-exam-1-wexnox',
             deployedUrl: 'http://blog.wexox.no',
-            imgSrc: '/src/assets/images/Screenshot%202023-03-09%20at%2012-09-59%20WoW%20Blog.png',
+            imgSrc: WowBlog,
         },
         {
             title: 'Rainydays',
@@ -41,7 +43,7 @@ function Projects() {
             features: ['Built using HTML5,SASS(CSS3), JavaScript and Gulp'],
             repoUrl: 'http://github.com/wexnox/rainydays',
             deployedUrl: 'http://rainydays.wexox.no',
-            imgSrc: '/src/assets/images/Screenshot%202023-03-12%20at%2014-44-56%20Rainydays.png',
+            imgSrc: Rainydays,
         },
         {
             title: 'Adventure-Trail-Hikes',
@@ -49,7 +51,7 @@ function Projects() {
             features: ['Built using HTML5,SASS(CSS3), JavaScript and Gulp'],
             repoUrl: 'https://github.com/wexnox/Adventure-Trail-Hikes',
             deployedUrl: 'http://adventure.wexox.no',
-            imgSrc: '/src/assets/images/Screenshot%202023-03-12%20at%2014-39-45%20Adventure%20Trail%20Hikes.png',
+            imgSrc: AdventureTrailHikes,
         },
         {
             title: 'Flower Power',
