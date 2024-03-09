@@ -18,14 +18,22 @@ function Card({ project }) {
                 </div>
             </div>
             <div className="px-6 py-10 flex flex-col sm:flex-row items-center justify-center">
-                <a href={project.repoUrl} className="text-blue-600 hover:underline flex items-center mb-4 sm:mb-0">
-                    <FaGithub className="mr-2" /> GitHub
-                </a>
-                {project.deployedUrl && (
+                {project.isPublicRepo
+                    ?
+                    <a href={project.repoUrl} className="text-blue-600 hover:underline flex items-center mb-4 sm:mb-0">
+                        <FaGithub className="mr-2"/> GitHub
+                    </a> : <p className="text-blue-600 flex items-center mb-4 sm:mb-0">
+                        <FaGithub className="mr-2"/> GitHub (Private)
+                    </p>
+                }
+                {project.isOnline ?
                     <a href={project.deployedUrl} className="ml-0 sm:ml-4 text-blue-600 hover:underline flex items-center">
                         <CgWebsite className="mr-2" /> Go to Site
                     </a>
-                )}
+                    : <p className="ml-0 sm:ml-4 text-blue-600 hover:underline flex items-center">
+                        <CgWebsite className="mr-2 " /> Not online
+                    </p>
+                }
             </div>
         </div>
     );
