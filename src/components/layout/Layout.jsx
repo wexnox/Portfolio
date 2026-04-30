@@ -12,11 +12,13 @@ const bgImage = {
 
 function Layout() {
     return (
-        <div style={{ ...bgImage }}>
+        <div style={{ ...bgImage }} className="min-h-screen flex flex-col">
             <Header />
-            <Outlet />
+            <main className="flex-grow">
+                <Outlet />
+            </main>
             <Footer />
         </div>
     );
-};
+}
 export default Layout;

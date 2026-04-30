@@ -13,27 +13,36 @@ function Navbar() {
     };
 
     return (
-        <nav className="bg-transparent w-full fixed top-0 z-[100]">
+        <nav className="bg-white/80 backdrop-blur-md border-b border-gray-200 w-full fixed top-0 z-100" aria-label="Hovedmeny">
             <div className="max-w-6xl mx-auto px-4">
-                <div className="flex justify-between items-center">
+                <div className="flex justify-between items-center h-16">
 
                     {/* Brand logo */}
-                    <a href="http://blog.wexox.me" className="flex items-center py-4 px-2">
-                        <img src={Logo} style={{ height: '50px', width: 'auto' }} alt="Logo" />
-                    </a>
+                    <NavLink to="/" className="flex items-center py-4 px-2" aria-label="Hjem">
+                        <img src={Logo} style={{ height: '40px', width: 'auto' }} alt="Lasse Rønningen Logo" />
+                    </NavLink>
 
                     {/* Primary Navbar items */}
-                    <div className={`hidden md:flex items-center space-x-4 ${isMobileMenuOpen ? 'block' : ''}`}>
-                        <NavLink to={'/'} aria-label={'Home page'} className="py-4 px-2 text-blue-500 font-bold hover:text-gray-700 transition duration-300">Home</NavLink>
-                        <NavLink to={'/about'} aria-label="About page" className="py-4 px-2 text-blue-500 font-bold hover:text-gray-700 transition duration-300">About Me</NavLink>
-                        <NavLink to={'/contact'} aria-label="Contact page" className="py-4 px-2 text-blue-500 font-bold hover:text-gray-700 transition duration-300">Contact Me</NavLink>
+                    <div className="hidden md:flex items-center space-x-6">
+                        <NavLink to={'/'} className={({isActive}) => `text-sm font-semibold transition duration-300 ${isActive ? 'text-blue-600' : 'text-gray-700 hover:text-blue-600'}`}>Hjem</NavLink>
+                        <NavLink to={'/about'} className={({isActive}) => `text-sm font-semibold transition duration-300 ${isActive ? 'text-blue-600' : 'text-gray-700 hover:text-blue-600'}`}>Om meg</NavLink>
+                        <NavLink to={'/contact'} className={({isActive}) => `text-sm font-semibold transition duration-300 ${isActive ? 'text-blue-600' : 'text-gray-700 hover:text-blue-600'}`}>Kontakt</NavLink>
                     </div>
 
                     {/* Mobile menu button */}
                     <div className="md:hidden flex items-center">
-                        <button onClick={toggleMobileMenu} className="outline-none mobile-menu-button">
-                            <svg className="w-6 h-6 text-gray-500 hover:text-gray-900" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor">
-                                <path d="M4 6h16M4 12h16m-7 6h7"></path>
+                        <button 
+                            onClick={toggleMobileMenu} 
+                            aria-expanded={isMobileMenuOpen}
+                            aria-label={isMobileMenuOpen ? "Lukk meny" : "Åpne meny"}
+                            className="outline-none p-2 rounded-md text-gray-500 hover:text-blue-600 hover:bg-gray-100 transition-colors"
+                        >
+                            <svg className="w-6 h-6" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor">
+                                {isMobileMenuOpen ? (
+                                    <path d="M6 18L18 6M6 6l12 12" />
+                                ) : (
+                                    <path d="M4 6h16M4 12h16m-7 6h7" />
+                                )}
                             </svg>
                         </button>
                     </div>
@@ -41,15 +50,21 @@ function Navbar() {
             </div>
 
             {/* Mobile Menu */}
-            <div className={`md:hidden ${isMobileMenuOpen ? 'block' : 'hidden'} bg-white shadow-md absolute w-full left-0`}>
-                <ul className="">
-                    <li><NavLink to={'/'} aria-label={'Home page'} onClick={toggleMobileMenu} className="block text-sm px-2 py-4 text-gray-900 hover:bg-gray-200 transition duration-300">Home</NavLink></li>
-                    <li><NavLink to={'/about'} aria-label="About page" onClick={toggleMobileMenu} className="block text-sm px-2 py-4 text-gray-900 hover:bg-gray-200 transition duration-300">About Me</NavLink></li>
-                    <li><NavLink to={'/contact'} aria-label="Contact page" onClick={toggleMobileMenu} className="block text-sm px-2 py-4 text-gray-900 hover:bg-gray-200 transition duration-300">Contact Me</NavLink></li>
+            <div className={`md:hidden ${isMobileMenuOpen ? 'block' : 'hidden'} bg-white border-b border-gray-200 shadow-lg absolute w-full left-0 transition-all duration-300 ease-in-out`}>
+                <ul className="py-2">
+                    <li>
+                        <NavLink to={'/'} onClick={toggleMobileMenu} className={({isActive}) => `block px-6 py-3 text-base font-medium transition duration-300 ${isActive ? 'text-blue-600 bg-blue-50' : 'text-gray-700 hover:bg-gray-50 hover:text-blue-600'}`}>Hjem</NavLink>
+                    </li>
+                    <li>
+                        <NavLink to={'/about'} onClick={toggleMobileMenu} className={({isActive}) => `block px-6 py-3 text-base font-medium transition duration-300 ${isActive ? 'text-blue-600 bg-blue-50' : 'text-gray-700 hover:bg-gray-50 hover:text-blue-600'}`}>Om meg</NavLink>
+                    </li>
+                    <li>
+                        <NavLink to={'/contact'} onClick={toggleMobileMenu} className={({isActive}) => `block px-6 py-3 text-base font-medium transition duration-300 ${isActive ? 'text-blue-600 bg-blue-50' : 'text-gray-700 hover:bg-gray-50 hover:text-blue-600'}`}>Kontakt</NavLink>
+                    </li>
                 </ul>
             </div>
         </nav>
     );
-};
+}
 
 export default Navbar;

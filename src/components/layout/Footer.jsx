@@ -7,49 +7,53 @@ import { FaHome, FaUser, FaEnvelope } from 'react-icons/fa';
 
 function Footer() {
     return (
-        <footer className="text-white mt-20 mx-10">
-            <div className="flex justify-around items-start"> {/* Added flex layout here */}
+        <footer className="bg-gray-900 text-white mt-auto pt-16 pb-8">
+            <div className="max-w-6xl mx-auto px-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
 
-                <div className="logo">
-                    <h3 className="text-lg font-semibold text-center mb-4">Logo</h3>
-                    <img src={Logo} style={{ height: '50px', width: 'auto' }} alt="Logo" />
+                    <div className="flex flex-col items-start">
+                        <h2 className="text-lg font-bold mb-6 text-blue-400">Lasse Rønningen</h2>
+                        <img src={Logo} style={{ height: '40px', width: 'auto' }} alt="Portfolio Logo" className="mb-4" />
+                        <p className="text-gray-400 text-sm leading-relaxed">
+                            Frontendutvikler med fokus på brukervennlige og tilgjengelige webløsninger.
+                        </p>
+                    </div>
+
+                    <nav aria-label="Juridisk informasjon">
+                        <h2 className="text-sm font-semibold uppercase tracking-wider text-gray-500 mb-6">Juridisk</h2>
+                        <ul className="space-y-4">
+                            <li><a href="#" className="flex items-center gap-3 text-gray-400 hover:text-white transition-colors text-sm"><FaRegCopyright aria-hidden="true" /> Opphavsrett</a></li>
+                            <li><a href="#" className="flex items-center gap-3 text-gray-400 hover:text-white transition-colors text-sm"><FaLock aria-hidden="true" /> Personvern</a></li>
+                            <li><a href="#" className="flex items-center gap-3 text-gray-400 hover:text-white transition-colors text-sm"><FaFileAlt aria-hidden="true" /> Vilkår</a></li>
+                        </ul>
+                    </nav>
+
+                    <nav aria-label="Sidenavigasjon">
+                        <h2 className="text-sm font-semibold uppercase tracking-wider text-gray-500 mb-6">Navigasjon</h2>
+                        <ul className="space-y-4">
+                            <li><NavLink className="flex items-center gap-3 text-gray-400 hover:text-white transition-colors text-sm" to={'/'}><FaHome aria-hidden="true" /> Hjem</NavLink></li>
+                            <li><NavLink className="flex items-center gap-3 text-gray-400 hover:text-white transition-colors text-sm" to={'/about'}><FaUser aria-hidden="true" /> Om meg</NavLink></li>
+                            <li><NavLink className="flex items-center gap-3 text-gray-400 hover:text-white transition-colors text-sm" to={'/contact'}><FaEnvelope aria-hidden="true" /> Kontakt</NavLink></li>
+                        </ul>
+                    </nav>
+
+                    <nav aria-label="Sosiale medier">
+                        <h2 className="text-sm font-semibold uppercase tracking-wider text-gray-500 mb-6">Sosialt</h2>
+                        <ul className="space-y-4">
+                            <li><a href="#" className="flex items-center gap-3 text-gray-400 hover:text-white transition-colors text-sm" aria-label="Følg meg på Facebook"><FaFacebookF aria-hidden="true" /> Facebook</a></li>
+                            <li><a href="#" className="flex items-center gap-3 text-gray-400 hover:text-white transition-colors text-sm" aria-label="Følg meg på Twitter"><FaTwitter aria-hidden="true" /> Twitter</a></li>
+                            <li><a href="#" className="flex items-center gap-3 text-gray-400 hover:text-white transition-colors text-sm" aria-label="Følg meg på YouTube"><FaYoutube aria-hidden="true" /> Youtube</a></li>
+                            <li><a href="#" className="flex items-center gap-3 text-gray-400 hover:text-white transition-colors text-sm" aria-label="Følg meg på Instagram"><FaInstagram aria-hidden="true" /> Instagram</a></li>
+                        </ul>
+                    </nav>
                 </div>
-
-                <div className="legal">
-                    <h3 className="text-lg font-semibold text-center mb-4">Legal</h3>
-                    <a href="#" className="block space-x-2 mb-2 hover:text-indigo-400"><FaRegCopyright className="inline-block" /><span>Copyright</span></a>
-                    <a href="#" className="block space-x-2 mb-2 hover:text-indigo-400"><FaLock className="inline-block" /><span>Privacy Policy</span></a>
-                    <a href="#" className="block space-x-2 mb-2 hover:text-indigo-400"><FaFileAlt className="inline-block" /><span>Terms of Use</span></a>
-                </div>
-
-                <div className="contact">
-                    <h3 className="text-lg font-semibold text-center mb-4">Company</h3>
-                    <NavLink className="block items-center space-x-2 hover:text-indigo-400" to={'/'} aria-label={'Home page'}><FaHome className="inline-block" /><span>Home</span></NavLink>
-                    <NavLink className="block items-center space-x-2 hover:text-indigo-400" to={'/about'} aria-label="About page"><FaUser className="inline-block" /><span>About Me</span></NavLink>
-                    <NavLink className="block items-center space-x-2 hover:text-indigo-400" to={'/contact'} aria-label="Contact page"> <FaEnvelope className="inline-block" /><span>Contact Me</span></NavLink>
-                </div>
-
-                <div className="social">
-                    <h3 className="text-lg font-semibold text-center mb-4">Social</h3>
-                    <a href="#" className="block items-center space-x-2 hover:text-indigo-400">
-                        <FaFacebookF className="inline-block" />
-                        <span>Facebook</span>
-                    </a>
-                    <a href="#" className="block items-center space-x-2 hover:text-indigo-400">
-                        <FaTwitter className="inline-block" />
-                        <span>Twitter</span>
-                    </a>
-                    <a href="#" className="block items-center space-x-2 hover:text-indigo-400">
-                        <FaYoutube className="inline-block" />
-                        <span>Youtube</span>
-                    </a>
-                    <a href="#" className="block items-center space-x-2 hover:text-indigo-400">
-                        <FaInstagram className="inline-block" />
-                        <span>Instagram</span>
-                    </a>
+                
+                <div className="pt-8 border-t border-gray-800 text-center">
+                    <p className="text-gray-500 text-sm italic">
+                        &copy; {new Date().getFullYear()} Lasse Rønningen. Alle rettigheter reservert.
+                    </p>
                 </div>
             </div>
-            <p className="mt-10 text-center">&copy; {new Date().getFullYear()} Company Name. All rights reserved.</p>
         </footer>
     );
 }
