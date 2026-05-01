@@ -19,7 +19,7 @@ function Navbar() {
 
                     {/* Brand logo */}
                     <NavLink to="/" className="flex items-center py-4 px-2" aria-label="Hjem">
-                        <img src={Logo} style={{ height: '40px', width: 'auto' }} alt="Lasse Rønningen Logo" />
+                        <img src={Logo} className="h-8 sm:h-10 w-auto" alt="Lasse Rønningen Logo" />
                     </NavLink>
 
                     {/* Primary Navbar items */}

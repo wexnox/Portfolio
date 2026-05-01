@@ -15,10 +15,10 @@ function Home() {
             </Helmet>
 
             {/* Hero */}
-            <section className="relative pt-32 pb-20 px-6">
+            <section className="relative pt-24 pb-16 sm:pt-32 sm:pb-20 px-6">
                 <div className="max-w-5xl mx-auto flex flex-col items-center text-center">
                     {/* Eyebrow badge */}
-                    <div className="inline-flex items-center gap-2 px-3 py-1 mb-6 text-xs font-bold tracking-wider uppercase rounded-full bg-blue-50 text-blue-700 ring-1 ring-blue-100 shadow-sm">
+                    <div className="inline-flex items-center gap-2 px-3 py-1 mb-6 text-[10px] sm:text-xs font-bold tracking-wider uppercase rounded-full bg-blue-50 text-blue-700 ring-1 ring-blue-100 shadow-sm">
                         <span className="relative flex h-2 w-2">
                             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
                             <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-600"></span>
@@ -38,16 +38,16 @@ function Home() {
                         tilgjengelige og visuelt engasjerende nettsider med React og moderne teknologi.
                     </p>
 
-                    <div className="mt-10 flex flex-wrap justify-center gap-4">
+                    <div className="mt-10 flex flex-col sm:flex-row justify-center gap-4 w-full sm:w-auto">
                         <a 
                             href="#projects" 
-                            className="px-8 py-4 bg-gray-900 text-white font-bold rounded-2xl shadow-lg hover:bg-gray-800 transition-all transform hover:-translate-y-1 active:scale-95"
+                            className="px-8 py-4 bg-gray-900 text-white font-bold rounded-2xl shadow-lg hover:bg-gray-800 transition-all transform hover:-translate-y-1 active:scale-95 text-center"
                         >
                             Se mine prosjekter
                         </a>
                         <Link 
                             to="/contact" 
-                            className="px-8 py-4 bg-white text-gray-900 font-bold rounded-2xl shadow-md ring-1 ring-gray-200 hover:bg-gray-50 transition-all transform hover:-translate-y-1 active:scale-95"
+                            className="px-8 py-4 bg-white text-gray-900 font-bold rounded-2xl shadow-md ring-1 ring-gray-200 hover:bg-gray-50 transition-all transform hover:-translate-y-1 active:scale-95 text-center"
                         >
                             Ta kontakt
                         </Link>
