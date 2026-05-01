@@ -11,9 +11,9 @@ function Footer() {
             <div className="max-w-6xl mx-auto px-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
 
-                    <div className="flex flex-col items-start">
-                        <h2 className="text-lg font-bold mb-6 text-blue-400">Lasse Rønningen</h2>
-                        <img src={Logo} style={{ height: '40px', width: 'auto' }} alt="Portfolio Logo" className="mb-4" />
+                    <div className="flex flex-col items-start lg:col-span-1">
+                        <h2 className="text-lg font-bold mb-4 sm:mb-6 text-blue-400">Lasse Rønningen</h2>
+                        <img src={Logo} className="h-8 sm:h-10 w-auto mb-4" alt="Portfolio Logo" />
                         <p className="text-gray-400 text-sm leading-relaxed">
                             Frontendutvikler med fokus på brukervennlige og tilgjengelige webløsninger.
                         </p>

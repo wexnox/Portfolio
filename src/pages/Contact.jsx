@@ -11,9 +11,9 @@ function Contact() {
                 <meta name="description" content="Ta kontakt med Lasse Rønningen for spørsmål eller samarbeid." />
             </Helmet>
 
-            <div className="max-w-4xl w-full mx-auto px-6 py-32 flex flex-col md:flex-row gap-12">
-                <div className="flex-1 text-white bg-blue-900/40 p-10 rounded-3xl backdrop-blur-xl border border-blue-200/20 shadow-2xl">
-                    <h1 className="mb-8 text-4xl font-extrabold tracking-tight">La oss ta en prat</h1>
+            <div className="max-w-4xl w-full mx-auto px-6 py-24 sm:py-32 flex flex-col md:flex-row gap-8 sm:gap-12">
+                <div className="flex-1 text-white bg-blue-900/40 p-6 sm:p-10 rounded-3xl backdrop-blur-xl border border-blue-200/20 shadow-2xl">
+                    <h1 className="mb-6 sm:mb-8 text-3xl sm:text-4xl font-extrabold tracking-tight">La oss ta en prat</h1>
 
                     <div className="space-y-8">
                         <p className="text-blue-100 text-lg">
@@ -44,7 +44,7 @@ function Contact() {
                     </div>
                 </div>
 
-                <div className="flex-1 bg-white p-10 rounded-3xl shadow-2xl border border-gray-100">
+                <div className="flex-1 bg-white p-6 sm:p-10 rounded-3xl shadow-2xl border border-gray-100">
                     <form className="space-y-6" noValidate>
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                             <div className="space-y-2">
