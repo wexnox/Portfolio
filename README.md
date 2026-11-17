@@ -6,7 +6,7 @@ A portfolio of fullstack web development projects.
 
 **Live site:** [portfolio.wexox.no](http://portfolio.wexox.no)
 
-[![Laravel Forge Site Deployment Status](https://img.shields.io/endpoint?url=https%3A%2F%2Fforge.laravel.com%2Fsite-badges%2F20d4bcf0-4f7e-4a55-b974-691ecf90ed4f&style=plastic)](https://forge.laravel.com/servers/513382/sites/1499168)
+[![Laravel Forge Site Deployment Status](https://img.shields.io/endpoint?url=https%3A%2F%2Fforge.laravel.com%2Fsite-badges%2F1d3cc332-33c5-4fc5-bca3-8bcfeeeb46e3%3Fdate%3D1%26label%3D1&style=for-the-badge)](https://forge.laravel.com/lasse-jle/gorgeous-morning-gtd/3504229)
 
 ## Description
 
