@@ -329,9 +329,12 @@ function Projects() {
         <div className="container mx-auto px-4 space-y-16">
             <section aria-labelledby="projects-featured">
                 <h3 id="projects-featured" className="mb-6 text-xl font-bold text-gray-900">Featured</h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    {featured.map((project) => (
-                        <Card key={project.title} project={project} featured />
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                    {featured.map((project, index) => (
+                        // The first featured project leads the list across the full width
+                        <div key={project.title} className={index === 0 ? 'lg:col-span-3' : undefined}>
+                            <Card project={project} featured lead={index === 0} />
+                        </div>
                     ))}
                 </div>
             </section>

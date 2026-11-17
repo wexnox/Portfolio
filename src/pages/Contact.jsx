@@ -82,7 +82,7 @@ function Contact() {
                 <meta name="description" content="Get in touch with Lasse Rønningen about questions or collaboration." />
             </Helmet>
 
-            <div className="max-w-4xl w-full mx-auto px-6 py-24 sm:py-32 flex flex-col md:flex-row gap-8 sm:gap-12">
+            <div className="max-w-4xl w-full mx-auto px-6 py-10 sm:py-24 flex flex-col md:flex-row gap-8 sm:gap-12">
                 <div className="flex-1 text-white bg-blue-900/95 p-6 sm:p-10 rounded-3xl backdrop-blur-xl border border-blue-200/20 shadow-2xl [--focus-ring:white]">
                     <h1 className="mb-6 sm:mb-8 text-3xl sm:text-4xl font-extrabold tracking-tight">Let&apos;s talk</h1>
 

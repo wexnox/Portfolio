@@ -2,7 +2,7 @@ import React from 'react';
 import { FaGithub } from 'react-icons/fa';
 import { FiExternalLink } from 'react-icons/fi';
 
-function Card({ project, featured = false }) {
+function Card({ project, featured = false, lead = false }) {
     const {
         title,
         description,
@@ -49,17 +49,20 @@ function Card({ project, featured = false }) {
 
     return (
         <article
-            className="flex flex-col h-full bg-white/80 backdrop-blur-md rounded-2xl shadow-md ring-1 ring-gray-200/70 overflow-hidden">
+            className={`flex flex-col h-full bg-white/80 backdrop-blur-md rounded-2xl shadow-md ring-1 ring-gray-200/70 overflow-hidden ${lead ? 'lg:flex-row' : ''}`}>
             {imgSrc && (
-                <img
-                    src={imgSrc}
-                    srcSet={imgSrcSet}
-                    sizes={imgSrcSet ? (featured ? '(min-width: 768px) 560px, 100vw' : '(min-width: 1024px) 360px, (min-width: 640px) 50vw, 100vw') : undefined}
-                    alt={isPlaceholderImage ? '' : `Screenshot of ${title}`}
-                    loading="lazy"
-                    decoding="async"
-                    className={`w-full object-cover ${featured ? 'h-64 object-top' : 'h-52'}`}
-                />
+                // The lead card sets the screenshot beside the text on wide screens
+                <div className={lead ? 'relative lg:w-1/2 lg:shrink-0' : undefined}>
+                    <img
+                        src={imgSrc}
+                        srcSet={imgSrcSet}
+                        sizes={imgSrcSet ? (featured ? '(min-width: 1024px) 640px, 100vw' : '(min-width: 1024px) 360px, (min-width: 640px) 50vw, 100vw') : undefined}
+                        alt={isPlaceholderImage ? '' : `Screenshot of ${title}`}
+                        loading="lazy"
+                        decoding="async"
+                        className={`w-full object-cover ${featured ? 'h-64 object-top' : 'h-52'} ${lead ? 'lg:absolute lg:inset-0 lg:h-full lg:object-left-top' : ''}`}
+                    />
+                </div>
             )}
 
             {/* Content */}
