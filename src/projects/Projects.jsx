@@ -2,6 +2,8 @@ import Card from '../components/Card.jsx';
 import React from 'react';
 import Matplan from '../assets/images/Matplan-1200.webp';
 import MatplanSmall from '../assets/images/Matplan-640.webp';
+import Drinktree from '../assets/images/Drinktree-1200.webp';
+import DrinktreeSmall from '../assets/images/Drinktree-640.webp';
 import WowBlog from '../assets/images/WoWBlog-1200.webp';
 import WowBlogSmall from '../assets/images/WoWBlog-640.webp';
 import Rainydays from '../assets/images/Rainydays-1200.webp';
@@ -37,7 +39,7 @@ function Projects() {
         {
             title: 'Drinktree',
             featured: true,
-            isOnline: false,
+            isOnline: true,
             isPublicRepo: false,
             description:
                 'Fullstack app for discovering, creating and keeping track of drink recipes. You register the ingredients you have, or scan them with the camera, and get suggestions for drinks you can make with what you already have.',
@@ -51,7 +53,9 @@ function Projects() {
             ],
             tech: ['Kotlin', 'Spring Boot', 'Vue', 'TypeScript', 'PostgreSQL', 'Docker'],
             repoUrl: 'https://github.com/wexnox/drinktree',
-            deployedUrl: '',
+            deployedUrl: 'https://drinktree.wexox.no',
+            imgSrc: Drinktree,
+            imgSrcSet: `${DrinktreeSmall} 640w, ${Drinktree} 1200w`,
         },
         {
             title: 'Project Management',
