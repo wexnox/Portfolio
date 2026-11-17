@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaGithub, FaLock } from 'react-icons/fa';
+import { FaGithub } from 'react-icons/fa';
 import { FiExternalLink } from 'react-icons/fi';
 
 function Card({ project }) {
@@ -13,6 +13,7 @@ function Card({ project }) {
         imgSrc,
         imgSrcSet,
         isOnline,
+        isArchived,
         isPublicRepo,
         repoUrl,
         deployedUrl,
@@ -22,11 +23,14 @@ function Card({ project }) {
     // Stand-in photos say nothing about the project, so they are hidden from screen readers
     const isPlaceholderImage = typeof imgSrc === 'string' && imgSrc.includes('picsum.photos');
 
+    const repoLink = isPublicRepo && repoUrl ? repoUrl : null;
+    const siteLink = isOnline && deployedUrl ? deployedUrl : null;
+    const unavailable = [!repoLink && 'Privat repo', !siteLink && (isArchived ? 'Arkivert' : 'Ikke publisert')].filter(Boolean);
+
     return (
         <article
-            className="group relative flex flex-col h-full bg-white/80 backdrop-blur-md rounded-2xl shadow-md ring-1 ring-gray-200/70 overflow-hidden transition duration-300 hover:-translate-y-1 hover:shadow-xl hover:ring-blue-200">
-            {/* Image */}
-            <div className="relative overflow-hidden">
+            className="flex flex-col h-full bg-white/80 backdrop-blur-md rounded-2xl shadow-md ring-1 ring-gray-200/70 overflow-hidden">
+            {imgSrc && (
                 <img
                     src={imgSrc}
                     srcSet={imgSrcSet}
@@ -34,37 +38,9 @@ function Card({ project }) {
                     alt={isPlaceholderImage ? '' : `Skjermbilde av ${title}`}
                     loading="lazy"
                     decoding="async"
-                    className="w-full h-52 object-cover transition duration-500 group-hover:scale-105"
+                    className="w-full h-52 object-cover"
                 />
-                <div className="absolute top-3 left-3 flex gap-2">
-                        <span
-                            className={`px-2.5 py-1 text-xs font-bold rounded-full shadow-sm ${
-                                isOnline
-                                    ? 'bg-emerald-700 text-white'
-                                    : 'bg-gray-600 text-white'
-                            }`}
-                        >
-                            {isOnline ? 'Publisert' : 'Ikke publisert'}
-                        </span>
-                        <span
-                            className={`px-2.5 py-1 text-xs font-bold rounded-full shadow-sm flex items-center gap-1 ${
-                                isPublicRepo
-                                    ? 'bg-blue-700 text-white'
-                                    : 'bg-slate-800 text-white'
-                            }`}
-                        >
-                        {isPublicRepo ? (
-                            <>
-                                <FaGithub className="text-[0.7rem]" aria-hidden="true" /> Åpent repo
-                            </>
-                        ) : (
-                            <>
-                                <FaLock className="text-[0.7rem]" aria-hidden="true" /> Privat repo
-                            </>
-                        )}
-                    </span>
-                </div>
-            </div>
+            )}
 
             {/* Content */}
             <div className="flex flex-col flex-1 px-6 py-5">
@@ -72,46 +48,38 @@ function Card({ project }) {
                     {title}
                 </h3>
 
+                {tech.length > 0 && (
+                    <p className="mt-1 text-xs font-semibold text-gray-600">
+                        {tech.join(' · ')}
+                    </p>
+                )}
+
                 <p className="mt-3 text-sm leading-relaxed text-gray-700">
                     {description}
                 </p>
 
-                {longDescription && (
-                    <p className="mt-2 text-sm leading-relaxed text-gray-600">
-                        {longDescription}
-                    </p>
-                )}
+                {(longDescription || bullets.length > 0) && (
+                    <details className="mt-3">
+                        <summary className="w-fit py-1 text-sm font-semibold text-blue-700 cursor-pointer">
+                            Mer om prosjektet<span className="sr-only">: {title}</span>
+                        </summary>
 
-                {bullets.length > 0 && (
-                    <div className="mt-4">
-                        <h4 className="text-xs font-semibold uppercase tracking-wider text-gray-600">
-                            Høydepunkter
-                        </h4>
-                        <ul className="mt-2 space-y-1.5">
-                            {bullets.map((item, i) => (
-                                <li
-                                    key={i}
-                                    className="flex items-start gap-2 text-sm text-gray-700"
-                                >
-                                    <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-blue-500 shrink-0" aria-hidden="true" />
-                                    <span>{item}</span>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-                )}
+                        {longDescription && (
+                            <p className="mt-2 text-sm leading-relaxed text-gray-700">
+                                {longDescription}
+                            </p>
+                        )}
 
-                {tech.length > 0 && (
-                    <div className="mt-4 flex flex-wrap gap-2">
-                        {tech.map((t, i) => (
-                            <span
-                                key={i}
-                                className="px-2.5 py-1 text-xs font-bold rounded-full bg-blue-100 text-blue-900 ring-1 ring-blue-200"
-                            >
-                                {t}
-                            </span>
-                        ))}
-                    </div>
+                        {bullets.length > 0 && (
+                            <ul className="mt-3 space-y-1.5 list-disc pl-5 marker:text-blue-500">
+                                {bullets.map((item, i) => (
+                                    <li key={i} className="text-sm text-gray-700">
+                                        {item}
+                                    </li>
+                                ))}
+                            </ul>
+                        )}
+                    </details>
                 )}
 
                 {/* Spacer pushes actions to bottom */}
@@ -119,34 +87,30 @@ function Card({ project }) {
 
                 {/* Actions */}
                 <div className="mt-6 pt-4 border-t border-gray-100 flex flex-wrap items-center gap-3">
-                    {isPublicRepo && repoUrl ? (
+                    {repoLink && (
                         <a
-                            href={repoUrl}
+                            href={repoLink}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="inline-flex items-center gap-2 px-3.5 py-2 text-sm font-medium rounded-lg bg-gray-900 text-white hover:bg-gray-800 transition"
                         >
                             <FaGithub aria-hidden="true" /> GitHub<span className="sr-only">: {title} (åpnes i ny fane)</span>
                         </a>
-                    ) : (
-                        <span className="inline-flex items-center gap-2 px-3.5 py-2 text-sm font-medium rounded-lg bg-gray-100 text-gray-600 cursor-not-allowed">
-                            <FaLock aria-hidden="true" /> Privat repo
-                        </span>
                     )}
 
-                    {isOnline && deployedUrl ? (
+                    {siteLink && (
                         <a
-                            href={deployedUrl}
+                            href={siteLink}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="inline-flex items-center gap-2 px-3.5 py-2 text-sm font-medium rounded-lg bg-blue-600 text-white hover:bg-blue-700 transition"
                         >
                             <FiExternalLink aria-hidden="true" /> Besøk siden<span className="sr-only">: {title} (åpnes i ny fane)</span>
                         </a>
-                    ) : (
-                        <span className="inline-flex items-center gap-2 px-3.5 py-2 text-sm font-medium rounded-lg bg-gray-100 text-gray-600 cursor-not-allowed">
-                            <FiExternalLink aria-hidden="true" /> Ikke publisert
-                        </span>
+                    )}
+
+                    {unavailable.length > 0 && (
+                        <p className="text-sm text-gray-600">{unavailable.join(' · ')}</p>
                     )}
                 </div>
             </div>

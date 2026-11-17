@@ -10,7 +10,7 @@ function Home() {
                 <title>Lasse Rønningen | Fullstackutvikler</title>
                 <meta
                     name="description"
-                    content="Portefølje for Lasse Rønningen, fullstackutvikler. Et utvalg prosjekter i React, Laravel, PHP og WordPress."
+                    content="Portefølje for Lasse Rønningen, fullstackutvikler. Et utvalg prosjekter innen webutvikling, fra database til grensesnitt."
                 />
             </Helmet>
 
@@ -35,7 +35,7 @@ function Home() {
 
                     <p className="mt-8 text-lg sm:text-xl leading-relaxed text-gray-600 max-w-2xl mx-auto font-medium">
                         Fullstackutvikler som bygger raske og tilgjengelige
-                        webløsninger med React og Laravel.
+                        webløsninger, fra database til grensesnitt.
                     </p>
 
                     <div className="mt-10 flex flex-col sm:flex-row justify-center gap-4 w-full sm:w-auto">
@@ -64,8 +64,8 @@ function Home() {
                                 Prosjekter
                             </h2>
                             <p className="mt-2 text-gray-600 text-sm sm:text-base">
-                                Se koden på GitHub, eller besøk de
-                                publiserte sidene.
+                                Noen har åpen kode på GitHub, og de
+                                publiserte sidene kan du besøke.
                             </p>
                         </div>
                     </div>
