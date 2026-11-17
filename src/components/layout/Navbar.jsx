@@ -29,20 +29,20 @@ function Navbar() {
     };
 
     return (
-        <nav className="bg-white/95 backdrop-blur-md border-b border-gray-200 w-full fixed top-0 z-100" aria-label="Hovedmeny" onKeyDown={handleKeyDown}>
+        <nav className="bg-white/95 backdrop-blur-md border-b border-gray-200 w-full fixed top-0 z-100" aria-label="Main menu" onKeyDown={handleKeyDown}>
             <div className="max-w-6xl mx-auto px-4">
                 <div className="flex justify-between items-center h-16">
 
                     {/* Brand logo */}
-                    <NavLink to="/" className="flex items-center py-4 px-2" aria-label="Hjem">
+                    <NavLink to="/" className="flex items-center py-4 px-2" aria-label="Home">
                         <img src={Logo} width="120" height="120" className="h-8 sm:h-10 w-auto" alt="Lasse Rønningen Logo" />
                     </NavLink>
 
                     {/* Primary Navbar items */}
                     <div className="hidden md:flex items-center space-x-6">
-                        <NavLink to={'/'} className={desktopLinkClass}>Hjem</NavLink>
-                        <NavLink to={'/about'} className={desktopLinkClass}>Om meg</NavLink>
-                        <NavLink to={'/contact'} className={desktopLinkClass}>Kontakt</NavLink>
+                        <NavLink to={'/'} className={desktopLinkClass}>Home</NavLink>
+                        <NavLink to={'/about'} className={desktopLinkClass}>About</NavLink>
+                        <NavLink to={'/contact'} className={desktopLinkClass}>Contact</NavLink>
                     </div>
 
                     {/* Mobile menu button */}
@@ -53,7 +53,7 @@ function Navbar() {
                             onClick={toggleMobileMenu}
                             aria-expanded={isMobileMenuOpen}
                             aria-controls="mobile-menu"
-                            aria-label={isMobileMenuOpen ? "Lukk meny" : "Åpne meny"}
+                            aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
                             className="p-2.5 rounded-md text-gray-700 hover:text-blue-700 hover:bg-gray-100 transition-colors"
                         >
                             <svg className="w-6 h-6" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
@@ -72,13 +72,13 @@ function Navbar() {
             <div id="mobile-menu" className={`md:hidden ${isMobileMenuOpen ? 'block' : 'hidden'} bg-white border-b border-gray-200 shadow-lg absolute w-full left-0 transition-all duration-300 ease-in-out`}>
                 <ul className="py-2">
                     <li>
-                        <NavLink to={'/'} onClick={closeMobileMenu} className={mobileLinkClass}>Hjem</NavLink>
+                        <NavLink to={'/'} onClick={closeMobileMenu} className={mobileLinkClass}>Home</NavLink>
                     </li>
                     <li>
-                        <NavLink to={'/about'} onClick={closeMobileMenu} className={mobileLinkClass}>Om meg</NavLink>
+                        <NavLink to={'/about'} onClick={closeMobileMenu} className={mobileLinkClass}>About</NavLink>
                     </li>
                     <li>
-                        <NavLink to={'/contact'} onClick={closeMobileMenu} className={mobileLinkClass}>Kontakt</NavLink>
+                        <NavLink to={'/contact'} onClick={closeMobileMenu} className={mobileLinkClass}>Contact</NavLink>
                     </li>
                 </ul>
             </div>

@@ -30,7 +30,7 @@ function Layout() {
                 href="#main"
                 className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[110] focus:px-4 focus:py-2 focus:rounded-lg focus:bg-white focus:text-gray-900 focus:font-semibold focus:shadow-lg"
             >
-                Hopp til innhold
+                Skip to content
             </a>
             <Header />
             <main id="main" ref={mainRef} tabIndex={-1} className="flex-grow outline-none">

@@ -25,7 +25,7 @@ function Card({ project }) {
 
     const repoLink = isPublicRepo && repoUrl ? repoUrl : null;
     const siteLink = isOnline && deployedUrl ? deployedUrl : null;
-    const unavailable = [!repoLink && 'Privat repo', !siteLink && (isArchived ? 'Arkivert' : 'Ikke publisert')].filter(Boolean);
+    const unavailable = [!repoLink && 'Private repo', !siteLink && (isArchived ? 'Archived' : 'Not published')].filter(Boolean);
 
     return (
         <article
@@ -35,7 +35,7 @@ function Card({ project }) {
                     src={imgSrc}
                     srcSet={imgSrcSet}
                     sizes={imgSrcSet ? '(min-width: 1024px) 360px, (min-width: 640px) 50vw, 100vw' : undefined}
-                    alt={isPlaceholderImage ? '' : `Skjermbilde av ${title}`}
+                    alt={isPlaceholderImage ? '' : `Screenshot of ${title}`}
                     loading="lazy"
                     decoding="async"
                     className="w-full h-52 object-cover"
@@ -61,7 +61,7 @@ function Card({ project }) {
                 {(longDescription || bullets.length > 0) && (
                     <details className="mt-3">
                         <summary className="w-fit py-1 text-sm font-semibold text-blue-700 cursor-pointer">
-                            Mer om prosjektet<span className="sr-only">: {title}</span>
+                            More about the project<span className="sr-only">: {title}</span>
                         </summary>
 
                         {longDescription && (
@@ -94,7 +94,7 @@ function Card({ project }) {
                             rel="noopener noreferrer"
                             className="inline-flex items-center gap-2 px-3.5 py-2 text-sm font-medium rounded-lg bg-gray-900 text-white hover:bg-gray-800 transition"
                         >
-                            <FaGithub aria-hidden="true" /> GitHub<span className="sr-only">: {title} (åpnes i ny fane)</span>
+                            <FaGithub aria-hidden="true" /> GitHub<span className="sr-only">: {title} (opens in a new tab)</span>
                         </a>
                     )}
 
@@ -105,7 +105,7 @@ function Card({ project }) {
                             rel="noopener noreferrer"
                             className="inline-flex items-center gap-2 px-3.5 py-2 text-sm font-medium rounded-lg bg-blue-600 text-white hover:bg-blue-700 transition"
                         >
-                            <FiExternalLink aria-hidden="true" /> Besøk siden<span className="sr-only">: {title} (åpnes i ny fane)</span>
+                            <FiExternalLink aria-hidden="true" /> Visit site<span className="sr-only">: {title} (opens in a new tab)</span>
                         </a>
                     )}
 

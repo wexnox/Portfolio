@@ -15,42 +15,42 @@ function Footer() {
                         <h2 className="text-lg font-bold mb-4 sm:mb-6 text-blue-400">Lasse Rønningen</h2>
                         <img src={Logo} width="120" height="120" className="h-8 sm:h-10 w-auto mb-4" alt="" />
                         <p className="text-gray-400 text-sm leading-relaxed">
-                            Fullstackutvikler med fokus på brukervennlige og tilgjengelige webløsninger.
+                            Fullstack developer focused on user-friendly and accessible web solutions.
                         </p>
                     </div>
 
-                    <nav aria-label="Juridisk informasjon">
-                        <h2 className="text-sm font-semibold uppercase tracking-wider text-gray-400 mb-6">Juridisk</h2>
+                    <nav aria-label="Legal information">
+                        <h2 className="text-sm font-semibold uppercase tracking-wider text-gray-400 mb-6">Legal</h2>
                         <ul className="space-y-2">
-                            <li><a href="#" className="flex items-center gap-3 py-1 text-gray-400 hover:text-white transition-colors text-sm"><FaRegCopyright aria-hidden="true" /> Opphavsrett</a></li>
-                            <li><a href="#" className="flex items-center gap-3 py-1 text-gray-400 hover:text-white transition-colors text-sm"><FaLock aria-hidden="true" /> Personvern</a></li>
-                            <li><a href="#" className="flex items-center gap-3 py-1 text-gray-400 hover:text-white transition-colors text-sm"><FaFileAlt aria-hidden="true" /> Vilkår</a></li>
+                            <li><a href="#" className="flex items-center gap-3 py-1 text-gray-400 hover:text-white transition-colors text-sm"><FaRegCopyright aria-hidden="true" /> Copyright</a></li>
+                            <li><a href="#" className="flex items-center gap-3 py-1 text-gray-400 hover:text-white transition-colors text-sm"><FaLock aria-hidden="true" /> Privacy</a></li>
+                            <li><a href="#" className="flex items-center gap-3 py-1 text-gray-400 hover:text-white transition-colors text-sm"><FaFileAlt aria-hidden="true" /> Terms</a></li>
                         </ul>
                     </nav>
 
-                    <nav aria-label="Sidenavigasjon">
-                        <h2 className="text-sm font-semibold uppercase tracking-wider text-gray-400 mb-6">Navigasjon</h2>
+                    <nav aria-label="Site navigation">
+                        <h2 className="text-sm font-semibold uppercase tracking-wider text-gray-400 mb-6">Navigation</h2>
                         <ul className="space-y-2">
-                            <li><NavLink className="flex items-center gap-3 py-1 text-gray-400 hover:text-white transition-colors text-sm" to={'/'}><FaHome aria-hidden="true" /> Hjem</NavLink></li>
-                            <li><NavLink className="flex items-center gap-3 py-1 text-gray-400 hover:text-white transition-colors text-sm" to={'/about'}><FaUser aria-hidden="true" /> Om meg</NavLink></li>
-                            <li><NavLink className="flex items-center gap-3 py-1 text-gray-400 hover:text-white transition-colors text-sm" to={'/contact'}><FaEnvelope aria-hidden="true" /> Kontakt</NavLink></li>
+                            <li><NavLink className="flex items-center gap-3 py-1 text-gray-400 hover:text-white transition-colors text-sm" to={'/'}><FaHome aria-hidden="true" /> Home</NavLink></li>
+                            <li><NavLink className="flex items-center gap-3 py-1 text-gray-400 hover:text-white transition-colors text-sm" to={'/about'}><FaUser aria-hidden="true" /> About</NavLink></li>
+                            <li><NavLink className="flex items-center gap-3 py-1 text-gray-400 hover:text-white transition-colors text-sm" to={'/contact'}><FaEnvelope aria-hidden="true" /> Contact</NavLink></li>
                         </ul>
                     </nav>
 
-                    <nav aria-label="Sosiale medier">
-                        <h2 className="text-sm font-semibold uppercase tracking-wider text-gray-400 mb-6">Sosialt</h2>
+                    <nav aria-label="Social media">
+                        <h2 className="text-sm font-semibold uppercase tracking-wider text-gray-400 mb-6">Social</h2>
                         <ul className="space-y-2">
-                            <li><a href="#" className="flex items-center gap-3 py-1 text-gray-400 hover:text-white transition-colors text-sm" aria-label="Følg meg på Facebook"><FaFacebookF aria-hidden="true" /> Facebook</a></li>
-                            <li><a href="#" className="flex items-center gap-3 py-1 text-gray-400 hover:text-white transition-colors text-sm" aria-label="Følg meg på Twitter"><FaTwitter aria-hidden="true" /> Twitter</a></li>
-                            <li><a href="#" className="flex items-center gap-3 py-1 text-gray-400 hover:text-white transition-colors text-sm" aria-label="Følg meg på YouTube"><FaYoutube aria-hidden="true" /> YouTube</a></li>
-                            <li><a href="#" className="flex items-center gap-3 py-1 text-gray-400 hover:text-white transition-colors text-sm" aria-label="Følg meg på Instagram"><FaInstagram aria-hidden="true" /> Instagram</a></li>
+                            <li><a href="#" className="flex items-center gap-3 py-1 text-gray-400 hover:text-white transition-colors text-sm" aria-label="Follow me on Facebook"><FaFacebookF aria-hidden="true" /> Facebook</a></li>
+                            <li><a href="#" className="flex items-center gap-3 py-1 text-gray-400 hover:text-white transition-colors text-sm" aria-label="Follow me on Twitter"><FaTwitter aria-hidden="true" /> Twitter</a></li>
+                            <li><a href="#" className="flex items-center gap-3 py-1 text-gray-400 hover:text-white transition-colors text-sm" aria-label="Follow me on YouTube"><FaYoutube aria-hidden="true" /> YouTube</a></li>
+                            <li><a href="#" className="flex items-center gap-3 py-1 text-gray-400 hover:text-white transition-colors text-sm" aria-label="Follow me on Instagram"><FaInstagram aria-hidden="true" /> Instagram</a></li>
                         </ul>
                     </nav>
                 </div>
                 
                 <div className="pt-8 border-t border-gray-800 text-center">
                     <p className="text-gray-400 text-sm italic">
-                        &copy; {new Date().getFullYear()} Lasse Rønningen. Alle rettigheter reservert.
+                        &copy; {new Date().getFullYear()} Lasse Rønningen. All rights reserved.
                     </p>
                 </div>
             </div>

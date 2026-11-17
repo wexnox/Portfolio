@@ -1,15 +1,16 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
+import ContactBand from '../components/ContactBand.jsx';
 import { FaGraduationCap, FaBriefcase, FaCode } from 'react-icons/fa';
 
 function About() {
     return (
         <div className="flex flex-col items-center py-24 px-6 min-h-screen">
             <Helmet>
-                <title>Om meg | Lasse Rønningen</title>
+                <title>Portfolio | About</title>
                 <meta
                     name="description"
-                    content="Lær mer om Lasse Rønningen, min utdannelse og min erfaring som fullstackutvikler."
+                    content="Learn more about Lasse Rønningen, my education and my experience as a fullstack developer."
                 />
             </Helmet>
 
@@ -22,10 +23,10 @@ function About() {
                         </div>
                         <div>
                             <h1 className="text-3xl sm:text-4xl font-extrabold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent mb-4 text-center md:text-left">
-                                Om meg
+                                About me
                             </h1>
                             <p className="text-base sm:text-lg leading-relaxed text-gray-700">
-                                Jeg er Lasse Rønningen, en lidenskapelig fullstackutvikler som fokuserer på å skape moderne, brukervennlige og universelt utformede webløsninger. Med en bakgrunn som kombinerer teknisk forståelse og visuelt design, streber jeg etter å levere kode av høy kvalitet som gir verdi for både brukere og bedrifter.
+                                I am Lasse Rønningen, a passionate fullstack developer focused on creating modern, user-friendly and accessible web solutions. With a background that combines technical understanding and visual design, I strive to deliver high-quality code that creates value for both users and businesses.
                             </p>
                         </div>
                     </div>
@@ -36,23 +37,23 @@ function About() {
                     <section className="p-6 sm:p-8 rounded-3xl shadow-lg bg-white/80 backdrop-blur-sm border border-gray-100 h-full">
                         <div className="flex items-center gap-3 mb-6">
                             <FaGraduationCap className="text-blue-600 text-2xl" aria-hidden="true" />
-                            <h2 className="text-xl sm:text-2xl font-bold text-gray-900">Utdannelse</h2>
+                            <h2 className="text-xl sm:text-2xl font-bold text-gray-900">Education</h2>
                         </div>
                         <div className="space-y-6">
                             <div className="relative pl-6 border-l-2 border-blue-100">
                                 <div className="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-blue-600 border-4 border-white" />
-                                <h3 className="font-bold text-gray-900">Frontend-utvikling</h3>
-                                <p className="text-blue-700 text-sm font-semibold">Noroff Fagskole • 2022 — 2024</p>
+                                <h3 className="font-bold text-gray-900">Frontend Development</h3>
+                                <p className="text-blue-700 text-sm font-semibold">Noroff School of Technology • 2022 — 2024</p>
                                 <p className="mt-2 text-gray-600 text-sm">
-                                    Spesialisering innen moderne rammeverk som React, universell utforming (WCAG), og smidig utviklingsmetodikk.
+                                    Specialisation in modern frameworks such as React, accessibility (WCAG) and agile development methods.
                                 </p>
                             </div>
                             <div className="relative pl-6 border-l-2 border-blue-100">
                                 <div className="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-blue-200 border-4 border-white" />
-                                <h3 className="font-bold text-gray-900">Interaksjonsdesign</h3>
-                                <p className="text-blue-700 text-sm font-semibold">Høyskolen i Kristiania • 2019 — 2022</p>
+                                <h3 className="font-bold text-gray-900">Interaction Design</h3>
+                                <p className="text-blue-700 text-sm font-semibold">Kristiania University College • 2019 — 2022</p>
                                 <p className="mt-2 text-gray-600 text-sm">
-                                    Bachelorgrad med fokus på brukersentrert design, prototyping og brukertesting.
+                                    Bachelor degree focused on user-centred design, prototyping and user testing.
                                 </p>
                             </div>
                         </div>
@@ -62,23 +63,23 @@ function About() {
                     <section className="p-6 sm:p-8 rounded-3xl shadow-lg bg-white/80 backdrop-blur-sm border border-gray-100 h-full">
                         <div className="flex items-center gap-3 mb-6">
                             <FaBriefcase className="text-blue-600 text-2xl" aria-hidden="true" />
-                            <h2 className="text-xl sm:text-2xl font-bold text-gray-900">Erfaring</h2>
+                            <h2 className="text-xl sm:text-2xl font-bold text-gray-900">Experience</h2>
                         </div>
                         <div className="space-y-6">
                             <div className="relative pl-6 border-l-2 border-blue-100">
                                 <div className="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-blue-600 border-4 border-white" />
-                                <h3 className="font-bold text-gray-900">Junior Frontendutvikler</h3>
-                                <p className="text-blue-700 text-sm font-semibold">TechFlow Solutions (Fiktivt) • 2024 — Nå</p>
+                                <h3 className="font-bold text-gray-900">Junior Frontend Developer</h3>
+                                <p className="text-blue-700 text-sm font-semibold">TechFlow Solutions (Fictional) • 2024 — Present</p>
                                 <p className="mt-2 text-gray-600 text-sm">
-                                    Ansvarlig for utvikling av responsive grensesnitt og komponentbiblioteker i React for diverse kundeprosjekter.
+                                    Responsible for building responsive interfaces and component libraries in React for various client projects.
                                 </p>
                             </div>
                             <div className="relative pl-6 border-l-2 border-blue-100">
                                 <div className="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-blue-200 border-4 border-white" />
-                                <h3 className="font-bold text-gray-900">Webutvikler (Frilans)</h3>
-                                <p className="text-blue-700 text-sm font-semibold">Eget firma • 2021 — 2024</p>
+                                <h3 className="font-bold text-gray-900">Web Developer (Freelance)</h3>
+                                <p className="text-blue-700 text-sm font-semibold">Self-employed • 2021 — 2024</p>
                                 <p className="mt-2 text-gray-600 text-sm">
-                                    Leverte skreddersydde WordPress-løsninger og statiske nettsider for små og mellomstore bedrifter.
+                                    Delivered tailored WordPress solutions and static websites for small and medium-sized businesses.
                                 </p>
                             </div>
                         </div>
@@ -89,7 +90,7 @@ function About() {
                 <section className="p-6 sm:p-8 rounded-3xl shadow-lg bg-gray-900 text-white border border-gray-800">
                     <div className="flex items-center gap-3 mb-8">
                         <FaCode className="text-blue-400 text-2xl" aria-hidden="true" />
-                        <h2 className="text-xl sm:text-2xl font-bold">Tekniske ferdigheter</h2>
+                        <h2 className="text-xl sm:text-2xl font-bold">Technical skills</h2>
                     </div>
                     <div className="flex flex-wrap gap-2 sm:gap-3">
                         {['React', 'JavaScript (ES6+)', 'TypeScript', 'Tailwind CSS', 'HTML5 & CSS3', 'Git', 'Vite', 'REST API', 'Figma', 'WCAG'].map((skill) => (
@@ -102,9 +103,13 @@ function About() {
 
                 <div className="text-center">
                     <p className="text-lg leading-relaxed text-gray-700 font-medium italic">
-                        «Mitt mål er å bygge løsninger som ikke bare ser bra ut, men som fungerer knirkefritt for alle.»
+                        “My goal is to build solutions that not only look good, but work smoothly for everyone.”
                     </p>
                 </div>
+            </div>
+
+            <div className="w-full mt-12 -mb-24">
+                <ContactBand />
             </div>
         </div>
     );
