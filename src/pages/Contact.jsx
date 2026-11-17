@@ -2,22 +2,19 @@ import React, { useRef, useState } from 'react';
 import {Helmet} from 'react-helmet-async';
 import { FaEnvelope, FaPhone } from 'react-icons/fa';
 
-const CONTACT_EMAIL = 'email@example.com';
+// Kept in parts and shown with spaces around @ so scrapers do not pick up the address
+const EMAIL_PARTS = ['lasseronnlie', 'pm.me'];
+const DISPLAY_EMAIL = EMAIL_PARTS.join(' @ ');
+const contactEmail = () => EMAIL_PARTS.join(String.fromCharCode(64));
 const MESSAGE_MAX_LENGTH = 1500;
-const FIELD_ORDER = ['firstName', 'lastName', 'email', 'message'];
-const EMPTY_VALUES = { firstName: '', lastName: '', email: '', message: '' };
+const FIELD_ORDER = ['name', 'message'];
+const EMPTY_VALUES = { name: '', message: '' };
 
 const inputClass = 'w-full px-4 py-3 rounded-xl border border-gray-500 placeholder:text-gray-500 focus:border-blue-700 aria-invalid:border-red-700 transition-colors';
 
 function validate(values) {
     const errors = {};
-    if (!values.firstName.trim()) errors.firstName = 'Skriv inn fornavnet ditt.';
-    if (!values.lastName.trim()) errors.lastName = 'Skriv inn etternavnet ditt.';
-    if (!values.email.trim()) {
-        errors.email = 'Skriv inn e-postadressen din.';
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(values.email.trim())) {
-        errors.email = 'E-postadressen ser ikke riktig ut. Sjekk at den har @ og et domene, for eksempel navn@example.com.';
-    }
+    if (!values.name.trim()) errors.name = 'Skriv inn navnet ditt.';
     if (!values.message.trim()) errors.message = 'Skriv en melding.';
     return errors;
 }
@@ -54,12 +51,21 @@ function Contact() {
             return;
         }
 
-        // No backend yet: hand the message over to the visitor's own e-mail program
-        const name = `${values.firstName.trim()} ${values.lastName.trim()}`;
+        // No backend by design: hand the message over to the visitor's own e-mail program
+        const name = values.name.trim();
         const subject = encodeURIComponent(`Henvendelse fra ${name}`);
-        const body = encodeURIComponent(`${values.message.trim()}\n\n${name}\n${values.email.trim()}`);
-        window.location.href = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
-        setStatus(`Meldingen skal nå ligge klar i e-postprogrammet ditt. Skjedde det ingenting? Send den til ${CONTACT_EMAIL}.`);
+        const body = encodeURIComponent(`${values.message.trim()}\n\n${name}`);
+        window.location.href = `mailto:${contactEmail()}?subject=${subject}&body=${body}`;
+        setStatus('Åpnet e-postprogrammet seg ikke? Kopier adressen med knappen over, og send meldingen fra e-posten din.');
+    };
+
+    const copyEmail = async () => {
+        try {
+            await navigator.clipboard.writeText(contactEmail());
+            setStatus('E-postadressen er kopiert.');
+        } catch {
+            setStatus(`Kunne ikke kopiere. Adressen er ${DISPLAY_EMAIL}.`);
+        }
     };
 
     const fieldProps = (field) => ({
@@ -95,7 +101,7 @@ function Contact() {
                                 </div>
                                 <div className="min-w-0">
                                     <p className="text-xs font-bold uppercase tracking-wider text-blue-200">E-post</p>
-                                    <a href={`mailto:${CONTACT_EMAIL}`} className="inline-block py-0.5 text-lg font-medium break-words hover:text-blue-200 transition-colors">{CONTACT_EMAIL}</a>
+                                    <p className="py-0.5 text-lg font-medium break-words">{DISPLAY_EMAIL}</p>
                                 </div>
                             </div>
 
@@ -114,38 +120,24 @@ function Contact() {
 
                 <div className="flex-1 bg-white p-6 sm:p-10 rounded-3xl shadow-2xl border border-gray-100">
                     <form className="space-y-6" noValidate onSubmit={handleSubmit}>
-                        <p className="text-sm text-gray-700">Alle felt må fylles ut.</p>
-
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                            <div className="space-y-2">
-                                <label className="text-sm font-bold text-gray-700 ml-1" htmlFor="first-name">Fornavn</label>
-                                <input
-                                    className={inputClass}
-                                    id="first-name" name="firstName" type="text" autoComplete="given-name" placeholder="Kari"
-                                    {...fieldProps('firstName')}/>
-                                <FieldError id="firstName-error" message={errors.firstName} />
-                            </div>
-                            <div className="space-y-2">
-                                <label className="text-sm font-bold text-gray-700 ml-1" htmlFor="last-name">Etternavn</label>
-                                <input
-                                    className={inputClass}
-                                    id="last-name" name="lastName" type="text" autoComplete="family-name" placeholder="Nordmann"
-                                    {...fieldProps('lastName')}/>
-                                <FieldError id="lastName-error" message={errors.lastName} />
-                            </div>
-                        </div>
+                        <p className="text-sm text-gray-700">
+                            Knappen åpner e-postprogrammet ditt med meldingen ferdig utfylt. Du sender den derfra.
+                        </p>
 
                         <div className="space-y-2">
-                            <label className="text-sm font-bold text-gray-700 ml-1" htmlFor="email">E-post</label>
+                            <label className="text-sm font-bold text-gray-700 ml-1" htmlFor="name">Navn</label>
                             <input
                                 className={inputClass}
-                                id="email" name="email" type="email" autoComplete="email" placeholder="kari@example.com"
-                                {...fieldProps('email')}/>
-                            <FieldError id="email-error" message={errors.email} />
+                                id="name" name="name" type="text" autoComplete="name" placeholder="Kari Nordmann"
+                                {...fieldProps('name')}/>
+                            <FieldError id="name-error" message={errors.name} />
                         </div>
 
                         <div className="space-y-2">
-                            <label className="text-sm font-bold text-gray-700 ml-1" htmlFor="message">Melding</label>
+                            <div className="flex items-baseline justify-between">
+                                <label className="text-sm font-bold text-gray-700 ml-1" htmlFor="message">Melding</label>
+                                <span className="text-xs text-gray-600 tabular-nums">{values.message.length} / {MESSAGE_MAX_LENGTH}</span>
+                            </div>
                             <textarea
                                 className={`${inputClass} min-h-[150px] resize-none`}
                                 id="message" name="message" maxLength={MESSAGE_MAX_LENGTH} placeholder="Hva kan jeg hjelpe deg med?"
@@ -158,7 +150,10 @@ function Contact() {
                             type="submit">Åpne meldingen i e-post
                         </button>
 
-                        <p className="text-sm text-gray-700">Du sender den fra din egen e‑post.</p>
+                        <button
+                            className="w-full py-3 text-sm font-semibold text-blue-700 rounded-xl hover:bg-blue-50 transition-colors"
+                            type="button" onClick={copyEmail}>Kopier e-postadressen
+                        </button>
 
                         <p role="status" className="text-sm text-gray-700 empty:hidden">{status}</p>
                     </form>
