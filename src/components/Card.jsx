@@ -2,7 +2,7 @@ import React from 'react';
 import { FaGithub } from 'react-icons/fa';
 import { FiExternalLink } from 'react-icons/fi';
 
-function Card({ project }) {
+function Card({ project, featured = false }) {
     const {
         title,
         description,
@@ -27,6 +27,26 @@ function Card({ project }) {
     const siteLink = isOnline && deployedUrl ? deployedUrl : null;
     const unavailable = [!repoLink && 'Private repo', !siteLink && (isArchived ? 'Archived' : 'Not published')].filter(Boolean);
 
+    const details = (
+        <>
+            {longDescription && (
+                <p className="mt-2 text-sm leading-relaxed text-gray-700">
+                    {longDescription}
+                </p>
+            )}
+
+            {bullets.length > 0 && (
+                <ul className="mt-3 space-y-1.5 list-disc pl-5 marker:text-blue-500">
+                    {bullets.map((item, i) => (
+                        <li key={i} className="text-sm text-gray-700">
+                            {item}
+                        </li>
+                    ))}
+                </ul>
+            )}
+        </>
+    );
+
     return (
         <article
             className="flex flex-col h-full bg-white/80 backdrop-blur-md rounded-2xl shadow-md ring-1 ring-gray-200/70 overflow-hidden">
@@ -34,19 +54,19 @@ function Card({ project }) {
                 <img
                     src={imgSrc}
                     srcSet={imgSrcSet}
-                    sizes={imgSrcSet ? '(min-width: 1024px) 360px, (min-width: 640px) 50vw, 100vw' : undefined}
+                    sizes={imgSrcSet ? (featured ? '(min-width: 768px) 560px, 100vw' : '(min-width: 1024px) 360px, (min-width: 640px) 50vw, 100vw') : undefined}
                     alt={isPlaceholderImage ? '' : `Screenshot of ${title}`}
                     loading="lazy"
                     decoding="async"
-                    className="w-full h-52 object-cover"
+                    className={`w-full object-cover ${featured ? 'h-64 object-top' : 'h-52'}`}
                 />
             )}
 
             {/* Content */}
             <div className="flex flex-col flex-1 px-6 py-5">
-                <h3 className="text-lg sm:text-xl font-semibold text-gray-900 tracking-tight break-words">
+                <h4 className={`font-semibold text-gray-900 tracking-tight break-words ${featured ? 'text-xl sm:text-2xl' : 'text-lg sm:text-xl'}`}>
                     {title}
-                </h3>
+                </h4>
 
                 {tech.length > 0 && (
                     <p className="mt-1 text-xs font-semibold text-gray-600">
@@ -58,28 +78,18 @@ function Card({ project }) {
                     {description}
                 </p>
 
-                {(longDescription || bullets.length > 0) && (
-                    <details className="mt-3">
-                        <summary className="w-fit py-1 text-sm font-semibold text-blue-700 cursor-pointer">
-                            More about the project<span className="sr-only">: {title}</span>
-                        </summary>
-
-                        {longDescription && (
-                            <p className="mt-2 text-sm leading-relaxed text-gray-700">
-                                {longDescription}
-                            </p>
-                        )}
-
-                        {bullets.length > 0 && (
-                            <ul className="mt-3 space-y-1.5 list-disc pl-5 marker:text-blue-500">
-                                {bullets.map((item, i) => (
-                                    <li key={i} className="text-sm text-gray-700">
-                                        {item}
-                                    </li>
-                                ))}
-                            </ul>
-                        )}
-                    </details>
+                {/* Featured projects show everything; the rest keep details behind a disclosure */}
+                {featured ? (
+                    details
+                ) : (
+                    (longDescription || bullets.length > 0) && (
+                        <details className="mt-3">
+                            <summary className="w-fit py-1 text-sm font-semibold text-blue-700 cursor-pointer">
+                                More about the project<span className="sr-only">: {title}</span>
+                            </summary>
+                            {details}
+                        </details>
+                    )
                 )}
 
                 {/* Spacer pushes actions to bottom */}

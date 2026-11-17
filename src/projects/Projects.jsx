@@ -10,10 +10,12 @@ import AdventureTrailHikes from '../assets/images/AdventureTrailHikes-1200.webp'
 import AdventureTrailHikesSmall from '../assets/images/AdventureTrailHikes-640.webp';
 
 function Projects() {
-    // Shown in this order: framework projects first, smaller ones further down
+    // Order within each group is the order here. `featured` puts a project in the top group,
+    // `isArchived` in the archive, everything else under "More projects".
     const projects = [
         {
             title: 'Matplan',
+            featured: true,
             isOnline: true,
             isPublicRepo: false,
             description:
@@ -34,6 +36,7 @@ function Projects() {
         },
         {
             title: 'Drinktree',
+            featured: true,
             isOnline: false,
             isPublicRepo: false,
             description:
@@ -52,6 +55,7 @@ function Projects() {
         },
         {
             title: 'Project Management',
+            featured: true,
             isOnline: false,
             isPublicRepo: false,
             description:
@@ -70,6 +74,7 @@ function Projects() {
         },
         {
             title: 'E-Learning',
+            featured: true,
             isOnline: false,
             isPublicRepo: false,
             description:
@@ -316,11 +321,39 @@ function Projects() {
         },
     ];
 
+    const featured = projects.filter((project) => project.featured);
+    const archived = projects.filter((project) => project.isArchived);
+    const others = projects.filter((project) => !project.featured && !project.isArchived);
+
     return (
-        <div className="container mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-4">
-            {projects.map((project, index) => (
-                <Card key={index} project={project} />
-            ))}
+        <div className="container mx-auto px-4 space-y-16">
+            <section aria-labelledby="projects-featured">
+                <h3 id="projects-featured" className="mb-6 text-xl font-bold text-gray-900">Featured</h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    {featured.map((project) => (
+                        <Card key={project.title} project={project} featured />
+                    ))}
+                </div>
+            </section>
+
+            <section aria-labelledby="projects-more">
+                <h3 id="projects-more" className="mb-6 text-xl font-bold text-gray-900">More projects</h3>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {others.map((project) => (
+                        <Card key={project.title} project={project} />
+                    ))}
+                </div>
+            </section>
+
+            <section aria-labelledby="projects-archive">
+                <h3 id="projects-archive" className="text-xl font-bold text-gray-900">Archive</h3>
+                <p className="mt-1 mb-6 text-sm text-gray-600">These projects have been taken offline.</p>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {archived.map((project) => (
+                        <Card key={project.title} project={project} />
+                    ))}
+                </div>
+            </section>
         </div>
     );
 }
