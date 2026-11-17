@@ -7,10 +7,10 @@ function Home() {
     return (
         <div className="flex flex-col overflow-x-hidden">
             <Helmet>
-                <title>Portfolio | Hjem</title>
+                <title>Lasse Rønningen | Fullstackutvikler</title>
                 <meta
                     name="description"
-                    content="Portefølje for Lasse Rønningen — frontendutvikler. Et utvalg av prosjekter innen React, JavaScript og webutvikling."
+                    content="Portefølje for Lasse Rønningen, fullstackutvikler. Et utvalg prosjekter i React, Laravel, PHP og WordPress."
                 />
             </Helmet>
 
@@ -18,9 +18,9 @@ function Home() {
             <section className="relative pt-24 pb-16 sm:pt-32 sm:pb-20 px-6">
                 <div className="max-w-5xl mx-auto flex flex-col items-center text-center">
                     {/* Eyebrow badge */}
-                    <div className="inline-flex items-center gap-2 px-3 py-1 mb-6 text-[10px] sm:text-xs font-bold tracking-wider uppercase rounded-full bg-blue-50 text-blue-700 ring-1 ring-blue-100 shadow-sm">
-                        <span className="relative flex h-2 w-2">
-                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                    <div className="inline-flex items-center gap-2 px-3 py-1 mb-6 text-xs font-bold tracking-wider uppercase rounded-full bg-blue-50 text-blue-700 ring-1 ring-blue-100 shadow-sm">
+                        <span className="relative flex h-2 w-2" aria-hidden="true">
+                            <span className="motion-safe:animate-ping [animation-iteration-count:3] absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
                             <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-600"></span>
                         </span>
                         Tilgjengelig for nye prosjekter
@@ -34,8 +34,8 @@ function Home() {
                     </h1>
 
                     <p className="mt-8 text-lg sm:text-xl leading-relaxed text-gray-600 max-w-2xl mx-auto font-medium">
-                        Frontendutvikler som spesialiserer seg på å lage raske, 
-                        tilgjengelige og visuelt engasjerende nettsider med React og moderne teknologi.
+                        Fullstackutvikler som bygger raske og tilgjengelige
+                        webløsninger med React og Laravel.
                     </p>
 
                     <div className="mt-10 flex flex-col sm:flex-row justify-center gap-4 w-full sm:w-auto">
@@ -56,7 +56,7 @@ function Home() {
             </section>
 
             {/* Projects */}
-            <section id="projects" className="pb-24">
+            <section id="projects" className="pb-24 scroll-mt-20">
                 <div className="max-w-6xl mx-auto">
                     <div className="flex items-end justify-between mb-8 px-4">
                         <div>
@@ -64,8 +64,8 @@ function Home() {
                                 Prosjekter
                             </h2>
                             <p className="mt-2 text-gray-600 text-sm sm:text-base">
-                                Klikk deg inn på GitHub eller besøk de
-                                publiserte sidene for å se mer.
+                                Se koden på GitHub, eller besøk de
+                                publiserte sidene.
                             </p>
                         </div>
                     </div>

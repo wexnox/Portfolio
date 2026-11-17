@@ -1,1 +1,35 @@
 @import "tailwindcss";
+
+@layer base {
+    /* Dark surfaces override --focus-ring so the indicator stays visible */
+    :focus-visible {
+        outline: 2px solid var(--focus-ring, var(--color-blue-700));
+        outline-offset: 2px;
+    }
+
+    ::selection {
+        background-color: var(--color-blue-200);
+        color: var(--color-gray-900);
+    }
+
+    h1,
+    h2,
+    h3 {
+        text-wrap: balance;
+    }
+
+    p {
+        text-wrap: pretty;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        *,
+        ::before,
+        ::after {
+            animation-duration: 0.01ms !important;
+            animation-iteration-count: 1 !important;
+            transition-duration: 0.01ms !important;
+            scroll-behavior: auto !important;
+        }
+    }
+}

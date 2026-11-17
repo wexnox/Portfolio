@@ -1,8 +1,11 @@
 import Card from '../components/Card.jsx';
 import React from 'react';
-import WowBlog from '../assets/images/WoWBlog.png';
-import Rainydays from '../assets/images/Rainydays.png';
-import AdventureTrailHikes from '../assets/images/AdventureTrailHikes.png';
+import WowBlog from '../assets/images/WoWBlog-1200.webp';
+import WowBlogSmall from '../assets/images/WoWBlog-640.webp';
+import Rainydays from '../assets/images/Rainydays-1200.webp';
+import RainydaysSmall from '../assets/images/Rainydays-640.webp';
+import AdventureTrailHikes from '../assets/images/AdventureTrailHikes-1200.webp';
+import AdventureTrailHikesSmall from '../assets/images/AdventureTrailHikes-640.webp';
 
 function Projects() {
     const projects = [
@@ -30,9 +33,9 @@ function Projects() {
             isOnline: false,
             isPublicRepo: true,
             description:
-                'En komplett eCom-løsning bygget i React for å demonstrere bruk av moderne rammeverk, state management og API-integrasjon. Brukere kan bla i produkter, lese detaljer, legge varer i handlekurv og gjennomføre en simulert checkout.',
+                'En komplett nettbutikk bygget i React for å demonstrere bruk av moderne rammeverk, state management og API-integrasjon. Brukere kan bla i produkter, lese detaljer, legge varer i handlekurv og gjennomføre en simulert checkout.',
             longDescription:
-                'Prosjektet legger vekt på komponentbasert arkitektur, gjenbrukbare hooks og en ren skille mellom UI, tilstand og data. Det inkluderer også søk, lasting/feilhåndtering og en kontaktside med skjemavalidering.',
+                'Prosjektet legger vekt på komponentbasert arkitektur, gjenbrukbare hooks og et rent skille mellom UI, tilstand og data. Det inkluderer også søk, lasting/feilhåndtering og en kontaktside med skjemavalidering.',
             highlights: [
                 'Produktliste, detaljside, handlekurv og checkout-flow',
                 'Global state med Context / hooks',
@@ -81,6 +84,7 @@ function Projects() {
             repoUrl: 'https://github.com/wexnox/project-exam-1-wexnox',
             deployedUrl: 'http://blog.wexox.no',
             imgSrc: WowBlog,
+            imgSrcSet: `${WowBlogSmall} 640w, ${WowBlog} 1200w`,
         },
         {
             title: 'Rainydays',
@@ -100,13 +104,14 @@ function Projects() {
             repoUrl: 'http://github.com/wexnox/rainydays',
             deployedUrl: 'http://rainydays.wexox.no',
             imgSrc: Rainydays,
+            imgSrcSet: `${RainydaysSmall} 640w, ${Rainydays} 1200w`,
         },
         {
             title: 'Adventure Trail Hikes',
             isOnline: true,
             isPublicRepo: false,
             description:
-                'Markedsføringsside for et reiselivsselskap som tilbyr ekstrem fottur i flere land. Siden presenterer turene, veileder potensielle kunder og samler inn forespørsler via skjema.',
+                'Markedsføringsside for et reiselivsselskap som tilbyr ekstreme fotturer i flere land. Siden presenterer turene, veileder potensielle kunder og samler inn forespørsler via skjema.',
             longDescription:
                 'Fokus har vært på sterk visuell historiefortelling, raske sider og god mobilopplevelse. Siden er bygget med en modulær Sass-struktur og automatisert med Gulp for å forenkle utvikling og deploy.',
             highlights: [
@@ -119,6 +124,7 @@ function Projects() {
             repoUrl: 'https://github.com/wexnox/Adventure-Trail-Hikes',
             deployedUrl: 'http://adventure.wexox.no',
             imgSrc: AdventureTrailHikes,
+            imgSrcSet: `${AdventureTrailHikesSmall} 640w, ${AdventureTrailHikes} 1200w`,
         },
         {
             title: 'Flower Power',

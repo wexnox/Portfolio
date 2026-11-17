@@ -11,6 +11,7 @@ function Card({ project }) {
         features = [],
         tech = [],
         imgSrc,
+        imgSrcSet,
         isOnline,
         isPublicRepo,
         repoUrl,
@@ -18,6 +19,8 @@ function Card({ project }) {
     } = project;
 
     const bullets = highlights.length > 0 ? highlights : features;
+    // Stand-in photos say nothing about the project, so they are hidden from screen readers
+    const isPlaceholderImage = typeof imgSrc === 'string' && imgSrc.includes('picsum.photos');
 
     return (
         <article
@@ -26,19 +29,22 @@ function Card({ project }) {
             <div className="relative overflow-hidden">
                 <img
                     src={imgSrc}
-                    alt={title}
+                    srcSet={imgSrcSet}
+                    sizes={imgSrcSet ? '(min-width: 1024px) 360px, (min-width: 640px) 50vw, 100vw' : undefined}
+                    alt={isPlaceholderImage ? '' : `Skjermbilde av ${title}`}
                     loading="lazy"
+                    decoding="async"
                     className="w-full h-52 object-cover transition duration-500 group-hover:scale-105"
                 />
                 <div className="absolute top-3 left-3 flex gap-2">
                         <span
                             className={`px-2.5 py-1 text-xs font-bold rounded-full shadow-sm ${
                                 isOnline
-                                    ? 'bg-emerald-600 text-white'
+                                    ? 'bg-emerald-700 text-white'
                                     : 'bg-gray-600 text-white'
                             }`}
                         >
-                            {isOnline ? 'Live' : 'Offline'}
+                            {isOnline ? 'Publisert' : 'Ikke publisert'}
                         </span>
                         <span
                             className={`px-2.5 py-1 text-xs font-bold rounded-full shadow-sm flex items-center gap-1 ${
@@ -49,11 +55,11 @@ function Card({ project }) {
                         >
                         {isPublicRepo ? (
                             <>
-                                <FaGithub className="text-[0.7rem]" /> Public
+                                <FaGithub className="text-[0.7rem]" aria-hidden="true" /> Åpent repo
                             </>
                         ) : (
                             <>
-                                <FaLock className="text-[0.7rem]" /> Private
+                                <FaLock className="text-[0.7rem]" aria-hidden="true" /> Privat repo
                             </>
                         )}
                     </span>
@@ -62,9 +68,9 @@ function Card({ project }) {
 
             {/* Content */}
             <div className="flex flex-col flex-1 px-6 py-5">
-                <h2 className="text-lg sm:text-xl font-semibold text-gray-900 tracking-tight">
+                <h3 className="text-lg sm:text-xl font-semibold text-gray-900 tracking-tight break-words">
                     {title}
-                </h2>
+                </h3>
 
                 <p className="mt-3 text-sm leading-relaxed text-gray-700">
                     {description}
@@ -78,16 +84,16 @@ function Card({ project }) {
 
                 {bullets.length > 0 && (
                     <div className="mt-4">
-                        <h3 className="text-xs font-semibold uppercase tracking-wider text-gray-500">
+                        <h4 className="text-xs font-semibold uppercase tracking-wider text-gray-600">
                             Høydepunkter
-                        </h3>
+                        </h4>
                         <ul className="mt-2 space-y-1.5">
                             {bullets.map((item, i) => (
                                 <li
                                     key={i}
                                     className="flex items-start gap-2 text-sm text-gray-700"
                                 >
-                                    <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-blue-500 shrink-0" />
+                                    <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-blue-500 shrink-0" aria-hidden="true" />
                                     <span>{item}</span>
                                 </li>
                             ))}
@@ -120,11 +126,11 @@ function Card({ project }) {
                             rel="noopener noreferrer"
                             className="inline-flex items-center gap-2 px-3.5 py-2 text-sm font-medium rounded-lg bg-gray-900 text-white hover:bg-gray-800 transition"
                         >
-                            <FaGithub /> GitHub
+                            <FaGithub aria-hidden="true" /> GitHub<span className="sr-only">: {title} (åpnes i ny fane)</span>
                         </a>
                     ) : (
-                        <span className="inline-flex items-center gap-2 px-3.5 py-2 text-sm font-medium rounded-lg bg-gray-100 text-gray-500 cursor-not-allowed">
-                            <FaLock /> Privat repo
+                        <span className="inline-flex items-center gap-2 px-3.5 py-2 text-sm font-medium rounded-lg bg-gray-100 text-gray-600 cursor-not-allowed">
+                            <FaLock aria-hidden="true" /> Privat repo
                         </span>
                     )}
 
@@ -135,11 +141,11 @@ function Card({ project }) {
                             rel="noopener noreferrer"
                             className="inline-flex items-center gap-2 px-3.5 py-2 text-sm font-medium rounded-lg bg-blue-600 text-white hover:bg-blue-700 transition"
                         >
-                            <FiExternalLink /> Besøk siden
+                            <FiExternalLink aria-hidden="true" /> Besøk siden<span className="sr-only">: {title} (åpnes i ny fane)</span>
                         </a>
                     ) : (
-                        <span className="inline-flex items-center gap-2 px-3.5 py-2 text-sm font-medium rounded-lg bg-gray-100 text-gray-500 cursor-not-allowed">
-                            <FiExternalLink /> Ikke publisert
+                        <span className="inline-flex items-center gap-2 px-3.5 py-2 text-sm font-medium rounded-lg bg-gray-100 text-gray-600 cursor-not-allowed">
+                            <FiExternalLink aria-hidden="true" /> Ikke publisert
                         </span>
                     )}
                 </div>
