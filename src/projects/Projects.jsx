@@ -4,6 +4,8 @@ import Matplan from '../assets/images/Matplan-1200.webp';
 import MatplanSmall from '../assets/images/Matplan-640.webp';
 import Drinktree from '../assets/images/Drinktree-1200.webp';
 import DrinktreeSmall from '../assets/images/Drinktree-640.webp';
+import ProjectManagement from '../assets/images/ProjectManagement-1200.webp';
+import ProjectManagementSmall from '../assets/images/ProjectManagement-640.webp';
 import WowBlog from '../assets/images/WoWBlog-1200.webp';
 import WowBlogSmall from '../assets/images/WoWBlog-640.webp';
 import Rainydays from '../assets/images/Rainydays-1200.webp';
@@ -75,6 +77,8 @@ function Projects() {
             tech: ['Kotlin', 'Compose Multiplatform', 'Spring Boot', 'PostgreSQL', 'SQLite'],
             repoUrl: 'https://github.com/wexnox/Project_Management',
             deployedUrl: '',
+            imgSrc: ProjectManagement,
+            imgSrcSet: `${ProjectManagementSmall} 640w, ${ProjectManagement} 1200w`,
         },
         {
             title: 'E-Learning',
